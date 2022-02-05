@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     gamesList: [],
-    myGames: []
+    myGames: [] // в массив добавляются элементы из gameList после клика на Add
   },
   mutations: {
     loadData (state) {

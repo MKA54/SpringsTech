@@ -1,16 +1,15 @@
 <template>
-  <v-app>
-    <GameList/>
+  <v-app style="
+    background: #3A1C71;
+    background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+    background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+  ">
+    <router-view/>
   </v-app>
 </template>
 
 <script>
-import GameList from './components/GameList'
-
 export default {
-  name: 'App',
-  components: {
-    GameList
-  }
+  name: 'App'
 }
 </script>
