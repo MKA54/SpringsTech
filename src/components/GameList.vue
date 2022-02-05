@@ -1,10 +1,10 @@
 <template>
   <v-list style="
     background: #ffcccc">
-    <draggable :list="$store.state.gamesList" @start="dragging = true"
+    <draggable :list="games" @start="dragging = true"
                @end="dragging = false">
       <v-list-item
-        v-for="item in $store.state.gamesList"
+        v-for="item in games"
         :key="item.id"
       >
         <v-list-item-avatar>
@@ -35,7 +35,7 @@ import draggable from 'vuedraggable'
 
 export default {
   name: 'GameList',
-  data: () => ({}),
+  props: ['games'],
   components: {
     draggable
   },
@@ -50,7 +50,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

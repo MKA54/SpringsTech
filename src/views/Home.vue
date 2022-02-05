@@ -30,7 +30,7 @@
         Sort Desc
       </v-btn>
     </div>
-    <GameList/>
+    <GameList :games="$store.state.gamesList"/>
   </v-card>
 </template>
 
