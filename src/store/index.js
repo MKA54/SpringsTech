@@ -28,36 +28,55 @@ export default new Vuex.Store({
         })
     },
     add (state, item) {
-      state.myGames.push(item)
+      try {
+        state.myGames.push(item)
+      } catch (e) {
+        alert('Игра не добавлена')
+        console.log('Ошибка ' + e.name + ':' + e.message + ', ' + e.stack)
+      }
     },
     deleteItem (state, item) {
-      state.gamesList = state.gamesList.filter(function (element) {
-        return element !== item
-      })
+      try {
+        state.gamesList = state.gamesList.filter(function (element) {
+          return element !== item
+        })
+      } catch (e) {
+        alert('Игра не удалена')
+        console.log('Ошибка ' + e.name + ':' + e.message + ', ' + e.stack)
+      }
     },
     sortASC (state) {
-      state.gamesList.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1
-        }
-        if (a.name < b.name) {
-          return -1
-        }
+      try {
+        state.gamesList.sort(function (a, b) {
+          if (a.name > b.name) {
+            return 1
+          }
+          if (a.name < b.name) {
+            return -1
+          }
 
-        return 0
-      })
+          return 0
+        })
+      } catch (e) {
+        alert('Попробуйте отсортировать еще раз!')
+        console.log('Ошибка ' + e.name + ':' + e.message + ', ' + e.stack)
+      }
     },
     sortDesc (state) {
-      state.gamesList.sort(function (a, b) {
-        if (a.name < b.name) {
-          return 1
-        }
-        if (a.name > b.name) {
-          return -1
-        }
+      try {
+        state.gamesList.sort(function (a, b) {
+          if (a.name < b.name) {
+            return 1
+          }
+          if (a.name > b.name) {
+            return -1
+          }
 
-        return 0
-      })
+          return 0
+        })
+      } catch (e) {
+        console.log('Ошибка ' + e.name + ':' + e.message + ', ' + e.stack)
+      }
     }
   },
   actions: {
