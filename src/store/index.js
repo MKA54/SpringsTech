@@ -15,15 +15,15 @@ export default new Vuex.Store({
         .then(response => {
           state.gamesList = response.data.data
         })
-        .catch(error => {
-          if (error.response) {
-            console.log(error.response.data)
-            console.log(error.response.status)
-            console.log(error.response.headers)
-          } else if (error.request) {
-            console.log(error.request)
+        .catch(e => {
+          if (e.response) {
+            console.log(e.response.data)
+            console.log(e.response.status)
+            console.log(e.response.headers)
+          } else if (e.request) {
+            console.log(e.request)
           } else {
-            console.log('Error', error.message)
+            console.log('Error', e.message)
           }
         })
     },
@@ -37,7 +37,7 @@ export default new Vuex.Store({
     },
     deleteItem (state, item) {
       try {
-        state.gamesList = state.gamesList.filter(function (element) {
+        state.gamesList = state.gamesList.filter(element => {
           return element !== item
         })
       } catch (e) {
@@ -47,7 +47,7 @@ export default new Vuex.Store({
     },
     sortASC (state) {
       try {
-        state.gamesList.sort(function (a, b) {
+        state.gamesList.sort((a, b) => {
           if (a.name > b.name) {
             return 1
           }
@@ -64,7 +64,7 @@ export default new Vuex.Store({
     },
     sortDesc (state) {
       try {
-        state.gamesList.sort(function (a, b) {
+        state.gamesList.sort((a, b) => {
           if (a.name < b.name) {
             return 1
           }
